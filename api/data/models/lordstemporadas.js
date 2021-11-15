@@ -6,7 +6,7 @@ module.exports = (sequelize, DataTypes) => {
   }, {});
   LordsTemporadas.associate = function(models) {
     LordsTemporadas.belongsTo(models.Lord, {foreignKey: 'lordId'})
-    LordsTemporadas.belongsTo(models.Temporadas, {foreignKey: 'temporadaId'})
+    LordsTemporadas.belongsTo(models.Temporada, {foreignKey: 'temporadaId'})
   };
   return LordsTemporadas;
 };
