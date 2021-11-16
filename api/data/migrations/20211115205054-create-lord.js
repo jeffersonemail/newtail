@@ -11,22 +11,13 @@ module.exports = {
       nome: {
         type: Sequelize.STRING
       },
-      casaId: {
-        type: Sequelize.INTEGER,
-        allowNull: false,
-        references: {
-          model: 'Casas',
-          key: 'id'
-        }
-      },
-      createdAt: {
-        allowNull: false,
-        type: Sequelize.DATE
-      },
-      updatedAt: {
-        allowNull: false,
-        type: Sequelize.DATE
+      temporadas: {
+        type: Sequelize.STRING,
+        allowNull: true
       }
+    }, {
+      createdAt: false,
+      updatedAt: false
     });
   },
   down: async (queryInterface, Sequelize) => {

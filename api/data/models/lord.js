@@ -2,11 +2,21 @@
 module.exports = (sequelize, DataTypes) => {
   const Lord = sequelize.define('Lord', {
     nome: DataTypes.STRING,
-    casaId: DataTypes.INTEGER
-  }, {});
+    temporadas: {
+      type: DataTypes.STRING,
+      get() {
+        return JSON.parse(this.getDataValue('temporadas'));
+      },
+      set(value) {
+        this.setDataValue('temporadas', JSON.stringify(value));
+      }
+    }
+  }, {
+    updatedAt: false,
+    createdAt: false
+  });
   Lord.associate = function(models) {
-    Lord.belongsTo(models.Casa, {foreignKey: 'casaId', as: 'casa'})
-    Lord.belongsToMany(models.Temporada, {through: 'LordsTemporadas', foreignKey: 'lordId', as: 'temporadas'})
+    Lord.hasOne(models.Casa)
   };
   return Lord;
 };

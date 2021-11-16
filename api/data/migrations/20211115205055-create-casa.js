@@ -17,14 +17,19 @@ module.exports = {
       anoDeFundacao: {
         type: Sequelize.INTEGER
       },
-      createdAt: {
-        allowNull: false,
-        type: Sequelize.DATE
-      },
-      updatedAt: {
-        allowNull: false,
-        type: Sequelize.DATE
+      lordId: {
+        type: Sequelize.INTEGER,
+        allowNull: true,
+        references: {
+          model: {
+            tableName: 'Lords'
+          },
+          key: 'id'
+        }          
       }
+    }, {
+      createdAt: false,
+      updatedAt: false
     });
   },
   down: async (queryInterface, Sequelize) => {

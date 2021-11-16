@@ -4,9 +4,12 @@ module.exports = (sequelize, DataTypes) => {
     nome: DataTypes.STRING,
     regiao: DataTypes.STRING,
     anoDeFundacao: DataTypes.INTEGER
-  }, {});
+  }, {
+    updatedAt: false,
+    createdAt: false
+  });
   Casa.associate = function(models) {
-    Casa.belongsTo(models.Lord, {as: 'lord'})
+    Casa.belongsTo(models.Lord)
   };
   return Casa;
 };
