@@ -81,9 +81,9 @@ npm start
 
 ### Faça requisições
 
-Funcionalidade: Adicionar uma casa
-Rota: POST /api/v1/casa
-Modelo JSON:
+#### Funcionalidade: Adicionar uma casa
+- Rota: POST /api/v1/casa
+- Modelo JSON:
 ```
 {
     "nome": "Nome da casa",
@@ -96,15 +96,15 @@ Modelo JSON:
 }
 ```
 
-Funcionalidade: Listar todas casas
-Rota: GET /api/v1/casa
+#### Funcionalidade: Listar todas casas
+- Rota: GET /api/v1/casa
 
-Funcionalidade: Listar todas casas
-Rota: GET /api/v1/casa/nome/<nome>
+#### Funcionalidade: Listar todas casas
+- Rota: GET /api/v1/casa/nome/:nome
 
-Funcionalidade: Listar todas casas
-Rota: GET /api/v1/casa/<id>
+#### Funcionalidade: Listar todas casas
+- Rota: GET /api/v1/casa/:id
 
-Funcionalidade: Listar todas casas
-Rota: DELETE /api/v1/casa/<id>
+#### Funcionalidade: Listar todas casas
+- Rota: DELETE /api/v1/casa/:id
 
