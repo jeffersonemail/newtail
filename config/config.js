@@ -12,7 +12,7 @@ const configurations =
     "host": process.env.DB_HOST,
     "port": process.env.DB_PORT,
     "dialect": process.env.DB_DIALECT,
-    "logging": true
+    "logging": false
   },
   "test": {
     "username": process.env.DB_USER,
@@ -21,7 +21,7 @@ const configurations =
     "host": process.env.DB_HOST,
     "port": process.env.DB_PORT,
     "dialect": process.env.DB_DIALECT,
-    "logging": true
+    "logging": false
   },
   "production": {
     "username": process.env.DB_USER,

@@ -10,8 +10,6 @@ module.exports = () => {
     try {
       var newCasa = req.body;
 
-      console.log(newCasa)
-
       if (isEmpty(newCasa) || typeof newCasa != 'object') {
         return error(res, 401, 'Json não enviado ou inválido.');
       }
@@ -46,18 +44,31 @@ module.exports = () => {
   }
 
   controller.buscarPorNome = async (req, res) => {
-    var casas = await Casa.findAll({ where: { nome: req.params.nome } })
-    res.status(200).json(casas);
+    var casas = await Casa.findAll({ where: { nome: req.params.nome } });
+    if (casas == null) {
+      return error(res, 404, `Nenhuma casa com o nome '${req.params.nome}' não foi encontrada`);
+    } else {
+      res.status(200).json(casas);
+    }
   }
 
   controller.buscarPorId = async (req, res) => {
-    var casas = await Casa.findOne({ where: { id: req.params.id } })
-    res.status(200).json(casas);
+    var casa = await Casa.findOne({ where: { id: req.params.id } });
+    if (casa == null) {
+      return error(res, 404, `Nenhuma casa com o ID '${req.params.id}' não foi encontrada`);
+    } else {
+      res.status(200).json(casa);
+    }
   }
 
   controller.remover = async (req, res) => {
-    var oldCasa = await Casa.destroy({ where: { id: req.params.id } })
-    res.status(200).json(oldCasa > 0 ? true : false);
+    var casa = await Casa.findOne({ where: { id: req.params.id } });
+    if (casa == null) {
+      return error(res, 404, `Nenhuma casa com o ID '${req.params.id}' não foi encontrada`);
+    } else {
+      var oldCasa = await Casa.destroy({ where: { id: req.params.id } });
+      res.status(200).json(oldCasa > 0 ? true : false);
+    }
   }
 
   return controller;

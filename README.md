@@ -36,6 +36,14 @@ E não se esqueça dos testes!! Esperamos um software bem testado.
 
 # Configuração do projeto
 
+### Informações técnicas
+- API: REST
+- Framework web: Express
+- Biblioteca de testes: Tape + Supertest
+- Banco de dados: MySQL
+- ORM: Sequelize
+
+
 ### Clone este projeto em sua estação
 ```
 git clone <url-deste-repositorio>
@@ -55,7 +63,7 @@ O banco de dados utilizado é o mysql
 # Database Connection
 DB_HOST=hostname
 DB_PORT=port
-DB_DIALECT=database-dialect
+DB_DIALECT=mysql
 DB_DATABASE=database-name
 DB_USER=username
 DB_PASS=password
@@ -73,6 +81,12 @@ npx sequelize-cli db:migrate
 ```
 
 O banco de dados é inicializado vazio
+
+### Execute os testes
+```
+npm install supertest tape
+npm test
+```
 
 ### Inicie o servidor
 ```
@@ -107,4 +121,3 @@ npm start
 
 #### Funcionalidade: Listar todas casas
 - Rota: DELETE /api/v1/casa/:id
-
